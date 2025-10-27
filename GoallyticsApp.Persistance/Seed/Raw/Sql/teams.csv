@@ -1,0 +1,224 @@
+,TeamApiId,Name,Code,Country,Founded,National,Logo
+0,157,Bayern München,BAY,Germany,1900.0,False,https://media.api-sports.io/football/teams/157.png
+1,159,Hertha BSC,HER,Germany,1892.0,False,https://media.api-sports.io/football/teams/159.png
+2,160,SC Freiburg,FRE,Germany,1904.0,False,https://media.api-sports.io/football/teams/160.png
+3,161,VfL Wolfsburg,WOL,Germany,1945.0,False,https://media.api-sports.io/football/teams/161.png
+4,162,Werder Bremen,WER,Germany,1899.0,False,https://media.api-sports.io/football/teams/162.png
+5,163,Borussia Mönchengladbach,MOE,Germany,1900.0,False,https://media.api-sports.io/football/teams/163.png
+6,164,FSV Mainz 05,MAI,Germany,1905.0,False,https://media.api-sports.io/football/teams/164.png
+7,165,Borussia Dortmund,DOR,Germany,1909.0,False,https://media.api-sports.io/football/teams/165.png
+8,167,1899 Hoffenheim,HOF,Germany,1899.0,False,https://media.api-sports.io/football/teams/167.png
+9,168,Bayer Leverkusen,BAY,Germany,1904.0,False,https://media.api-sports.io/football/teams/168.png
+10,169,Eintracht Frankfurt,EIN,Germany,1899.0,False,https://media.api-sports.io/football/teams/169.png
+11,170,FC Augsburg,AUG,Germany,1907.0,False,https://media.api-sports.io/football/teams/170.png
+12,173,RB Leipzig,LEI,Germany,2009.0,False,https://media.api-sports.io/football/teams/173.png
+13,174,FC Schalke 04,SCH,Germany,1904.0,False,https://media.api-sports.io/football/teams/174.png
+14,175,Hamburger SV,HAM,Germany,1887.0,False,https://media.api-sports.io/football/teams/175.png
+15,181,SV Darmstadt 98,DAR,Germany,1898.0,False,https://media.api-sports.io/football/teams/181.png
+16,184,FC Ingolstadt 04,ING,Germany,2004.0,False,https://media.api-sports.io/football/teams/184.png
+17,192,1.FC Köln,KOL,Germany,1948.0,False,https://media.api-sports.io/football/teams/192.png
+18,166,Hannover 96,HAN,Germany,1896.0,False,https://media.api-sports.io/football/teams/166.png
+19,172,VfB Stuttgart,STU,Germany,1893.0,False,https://media.api-sports.io/football/teams/172.png
+20,158,Fortuna Düsseldorf,DUS,Germany,1895.0,False,https://media.api-sports.io/football/teams/158.png
+21,171,1. FC Nürnberg,NUR,Germany,1900.0,False,https://media.api-sports.io/football/teams/171.png
+22,182,Union Berlin,UNI,Germany,1966.0,False,https://media.api-sports.io/football/teams/182.png
+23,180,1. FC Heidenheim,HEI,Germany,1946.0,False,https://media.api-sports.io/football/teams/180.png
+24,185,SC Paderborn 07,PAD,Germany,1907.0,False,https://media.api-sports.io/football/teams/185.png
+25,188,Arminia Bielefeld,ARM,Germany,1905.0,False,https://media.api-sports.io/football/teams/188.png
+26,191,Holstein Kiel,HOL,Germany,1900.0,False,https://media.api-sports.io/football/teams/191.png
+27,176,VfL Bochum,BOC,Germany,1848.0,False,https://media.api-sports.io/football/teams/176.png
+28,178,SpVgg Greuther Fürth,GRE,Germany,1903.0,False,https://media.api-sports.io/football/teams/178.png
+29,186,FC St. Pauli,PAU,Germany,1910.0,False,https://media.api-sports.io/football/teams/186.png
+30,1660,SV Elversberg,ELV,Germany,1907.0,False,https://media.api-sports.io/football/teams/1660.png
+31,33,Manchester United,MUN,England,1878.0,False,https://media.api-sports.io/football/teams/33.png
+32,35,Bournemouth,BOU,England,1899.0,False,https://media.api-sports.io/football/teams/35.png
+33,38,Watford,WAT,England,1881.0,False,https://media.api-sports.io/football/teams/38.png
+34,40,Liverpool,LIV,England,1892.0,False,https://media.api-sports.io/football/teams/40.png
+35,41,Southampton,SOU,England,1885.0,False,https://media.api-sports.io/football/teams/41.png
+36,42,Arsenal,ARS,England,1886.0,False,https://media.api-sports.io/football/teams/42.png
+37,44,Burnley,BUR,England,1882.0,False,https://media.api-sports.io/football/teams/44.png
+38,45,Everton,EVE,England,1878.0,False,https://media.api-sports.io/football/teams/45.png
+39,46,Leicester,LEI,England,1884.0,False,https://media.api-sports.io/football/teams/46.png
+40,47,Tottenham,TOT,England,1882.0,False,https://media.api-sports.io/football/teams/47.png
+41,48,West Ham,WES,England,1895.0,False,https://media.api-sports.io/football/teams/48.png
+42,49,Chelsea,CHE,England,1905.0,False,https://media.api-sports.io/football/teams/49.png
+43,50,Manchester City,MAC,England,1880.0,False,https://media.api-sports.io/football/teams/50.png
+44,52,Crystal Palace,CRY,England,1861.0,False,https://media.api-sports.io/football/teams/52.png
+45,60,West Brom,WES,England,1878.0,False,https://media.api-sports.io/football/teams/60.png
+46,64,Hull City,HUL,England,1904.0,False,https://media.api-sports.io/football/teams/64.png
+47,70,Middlesbrough,MID,England,1876.0,False,https://media.api-sports.io/football/teams/70.png
+48,75,Stoke City,STO,England,1868.0,False,https://media.api-sports.io/football/teams/75.png
+49,76,Swansea,SWA,Wales,1912.0,False,https://media.api-sports.io/football/teams/76.png
+50,746,Sunderland,SUN,England,1879.0,False,https://media.api-sports.io/football/teams/746.png
+51,34,Newcastle,NEW,England,1892.0,False,https://media.api-sports.io/football/teams/34.png
+52,37,Huddersfield,HUD,England,1908.0,False,https://media.api-sports.io/football/teams/37.png
+53,51,Brighton,BRI,England,1901.0,False,https://media.api-sports.io/football/teams/51.png
+54,36,Fulham,FUL,England,1879.0,False,https://media.api-sports.io/football/teams/36.png
+55,39,Wolves,WOL,England,1877.0,False,https://media.api-sports.io/football/teams/39.png
+56,43,Cardiff,CAR,Wales,1889.0,False,https://media.api-sports.io/football/teams/43.png
+57,62,Sheffield Utd,SHE,England,1889.0,False,https://media.api-sports.io/football/teams/62.png
+58,66,Aston Villa,AST,England,1874.0,False,https://media.api-sports.io/football/teams/66.png
+59,71,Norwich,NOR,England,1902.0,False,https://media.api-sports.io/football/teams/71.png
+60,63,Leeds,LEE,England,1919.0,False,https://media.api-sports.io/football/teams/63.png
+61,55,Brentford,BRE,England,1889.0,False,https://media.api-sports.io/football/teams/55.png
+62,65,Nottingham Forest,NOT,England,1865.0,False,https://media.api-sports.io/football/teams/65.png
+63,1359,Luton,LUT,England,1885.0,False,https://media.api-sports.io/football/teams/1359.png
+64,57,Ipswich,IPS,England,1878.0,False,https://media.api-sports.io/football/teams/57.png
+65,529,Barcelona,BAR,Spain,1899.0,False,https://media.api-sports.io/football/teams/529.png
+66,530,Atletico Madrid,MAD,Spain,1903.0,False,https://media.api-sports.io/football/teams/530.png
+67,531,Athletic Club,BIL,Spain,1898.0,False,https://media.api-sports.io/football/teams/531.png
+68,532,Valencia,VAL,Spain,1919.0,False,https://media.api-sports.io/football/teams/532.png
+69,533,Villarreal,VIL,Spain,1923.0,False,https://media.api-sports.io/football/teams/533.png
+70,534,Las Palmas,PAL,Spain,1949.0,False,https://media.api-sports.io/football/teams/534.png
+71,535,Malaga,MAL,Spain,1948.0,False,https://media.api-sports.io/football/teams/535.png
+72,536,Sevilla,SEV,Spain,1890.0,False,https://media.api-sports.io/football/teams/536.png
+73,537,Leganes,LEG,Spain,1928.0,False,https://media.api-sports.io/football/teams/537.png
+74,538,Celta Vigo,CEL,Spain,1923.0,False,https://media.api-sports.io/football/teams/538.png
+75,540,Espanyol,ESP,Spain,1900.0,False,https://media.api-sports.io/football/teams/540.png
+76,541,Real Madrid,REA,Spain,1902.0,False,https://media.api-sports.io/football/teams/541.png
+77,542,Alaves,ALA,Spain,1921.0,False,https://media.api-sports.io/football/teams/542.png
+78,543,Real Betis,BET,Spain,1907.0,False,https://media.api-sports.io/football/teams/543.png
+79,544,Deportivo La Coruna,COR,Spain,1906.0,False,https://media.api-sports.io/football/teams/544.png
+80,545,Eibar,EIB,Spain,1940.0,False,https://media.api-sports.io/football/teams/545.png
+81,548,Real Sociedad,RSO,Spain,1909.0,False,https://media.api-sports.io/football/teams/548.png
+82,715,Granada CF,GRA,Spain,1931.0,False,https://media.api-sports.io/football/teams/715.png
+83,727,Osasuna,OSA,Spain,1920.0,False,https://media.api-sports.io/football/teams/727.png
+84,731,Sporting Gijon,GIJ,Spain,1905.0,False,https://media.api-sports.io/football/teams/731.png
+85,539,Levante,LEV,Spain,1909.0,False,https://media.api-sports.io/football/teams/539.png
+86,546,Getafe,GET,Spain,1983.0,False,https://media.api-sports.io/football/teams/546.png
+87,547,Girona,GIR,Spain,1930.0,False,https://media.api-sports.io/football/teams/547.png
+88,720,Valladolid,VAL,Spain,1928.0,False,https://media.api-sports.io/football/teams/720.png
+89,726,Huesca,HUE,Spain,1922.0,False,https://media.api-sports.io/football/teams/726.png
+90,728,Rayo Vallecano,RAY,Spain,1924.0,False,https://media.api-sports.io/football/teams/728.png
+91,798,Mallorca,MAL,Spain,1916.0,False,https://media.api-sports.io/football/teams/798.png
+92,724,Cadiz,CAD,Spain,1910.0,False,https://media.api-sports.io/football/teams/724.png
+93,797,Elche,ELC,Spain,1923.0,False,https://media.api-sports.io/football/teams/797.png
+94,723,Almeria,ALM,Spain,1989.0,False,https://media.api-sports.io/football/teams/723.png
+95,718,Oviedo,OVI,Spain,1926.0,False,https://media.api-sports.io/football/teams/718.png
+96,487,Lazio,LAZ,Italy,1900.0,False,https://media.api-sports.io/football/teams/487.png
+97,488,Sassuolo,SAS,Italy,1922.0,False,https://media.api-sports.io/football/teams/488.png
+98,489,AC Milan,MIL,Italy,1899.0,False,https://media.api-sports.io/football/teams/489.png
+99,490,Cagliari,CAG,Italy,1920.0,False,https://media.api-sports.io/football/teams/490.png
+100,491,Chievo,CHI,Italy,1929.0,False,https://media.api-sports.io/football/teams/491.png
+101,492,Napoli,NAP,Italy,1904.0,False,https://media.api-sports.io/football/teams/492.png
+102,494,Udinese,UDI,Italy,1896.0,False,https://media.api-sports.io/football/teams/494.png
+103,495,Genoa,GEN,Italy,1893.0,False,https://media.api-sports.io/football/teams/495.png
+104,496,Juventus,JUV,Italy,1897.0,False,https://media.api-sports.io/football/teams/496.png
+105,497,AS Roma,ROM,Italy,1927.0,False,https://media.api-sports.io/football/teams/497.png
+106,498,Sampdoria,SAM,Italy,1946.0,False,https://media.api-sports.io/football/teams/498.png
+107,499,Atalanta,ATA,Italy,1907.0,False,https://media.api-sports.io/football/teams/499.png
+108,500,Bologna,BOL,Italy,1909.0,False,https://media.api-sports.io/football/teams/500.png
+109,501,Crotone,CRO,Italy,1923.0,False,https://media.api-sports.io/football/teams/501.png
+110,502,Fiorentina,FIO,Italy,1926.0,False,https://media.api-sports.io/football/teams/502.png
+111,503,Torino,TOR,Italy,1906.0,False,https://media.api-sports.io/football/teams/503.png
+112,505,Inter,INT,Italy,1908.0,False,https://media.api-sports.io/football/teams/505.png
+113,511,Empoli,EMP,Italy,1920.0,False,https://media.api-sports.io/football/teams/511.png
+114,522,Palermo,PAL,Italy,1900.0,False,https://media.api-sports.io/football/teams/522.png
+115,525,Pescara,PES,Italy,1936.0,False,https://media.api-sports.io/football/teams/525.png
+116,493,Spal,SPA,Italy,1907.0,False,https://media.api-sports.io/football/teams/493.png
+117,504,Verona,VER,Italy,1903.0,False,https://media.api-sports.io/football/teams/504.png
+118,506,Benevento,BEN,Italy,1929.0,False,https://media.api-sports.io/football/teams/506.png
+119,512,Frosinone,FRO,Italy,1928.0,False,https://media.api-sports.io/football/teams/512.png
+120,523,Parma,PAR,Italy,1913.0,False,https://media.api-sports.io/football/teams/523.png
+121,518,Brescia,BRE,Italy,1911.0,False,https://media.api-sports.io/football/teams/518.png
+122,867,Lecce,LEC,Italy,1908.0,False,https://media.api-sports.io/football/teams/867.png
+123,515,Spezia,SPE,Italy,1906.0,False,https://media.api-sports.io/football/teams/515.png
+124,514,Salernitana,SAL,Italy,2011.0,False,https://media.api-sports.io/football/teams/514.png
+125,517,Venezia,VEN,Italy,1907.0,False,https://media.api-sports.io/football/teams/517.png
+126,520,Cremonese,CRE,Italy,1903.0,False,https://media.api-sports.io/football/teams/520.png
+127,1579,Monza,MON,Italy,1912.0,False,https://media.api-sports.io/football/teams/1579.png
+128,895,Como,COM,Italy,1907.0,False,https://media.api-sports.io/football/teams/895.png
+129,801,Pisa,PIS,Italy,1909.0,False,https://media.api-sports.io/football/teams/801.png
+130,77,Angers,ANG,France,1919.0,False,https://media.api-sports.io/football/teams/77.png
+131,78,Bordeaux,BOR,France,1881.0,False,https://media.api-sports.io/football/teams/78.png
+132,79,Lille,LIL,France,1944.0,False,https://media.api-sports.io/football/teams/79.png
+133,80,Lyon,LYO,France,1950.0,False,https://media.api-sports.io/football/teams/80.png
+134,81,Marseille,MAR,France,1899.0,False,https://media.api-sports.io/football/teams/81.png
+135,82,Montpellier,MON,France,1974.0,False,https://media.api-sports.io/football/teams/82.png
+136,83,Nantes,NAN,France,1943.0,False,https://media.api-sports.io/football/teams/83.png
+137,84,Nice,NIC,France,1904.0,False,https://media.api-sports.io/football/teams/84.png
+138,85,Paris Saint Germain,PAR,France,1970.0,False,https://media.api-sports.io/football/teams/85.png
+139,88,Caen,CAE,France,1897.0,False,https://media.api-sports.io/football/teams/88.png
+140,89,Dijon,DIJ,France,1936.0,False,https://media.api-sports.io/football/teams/89.png
+141,90,Guingamp,GUI,France,1912.0,False,https://media.api-sports.io/football/teams/90.png
+142,91,Monaco,MON,France,1919.0,False,https://media.api-sports.io/football/teams/91.png
+143,94,Rennes,REN,France,1901.0,False,https://media.api-sports.io/football/teams/94.png
+144,96,Toulouse,TOU,France,1937.0,False,https://media.api-sports.io/football/teams/96.png
+145,97,Lorient,LOR,France,1926.0,False,https://media.api-sports.io/football/teams/97.png
+146,102,Nancy,NAN,France,1967.0,False,https://media.api-sports.io/football/teams/102.png
+147,112,Metz,MET,France,1932.0,False,https://media.api-sports.io/football/teams/112.png
+148,1063,Saint Etienne,ETI,France,1920.0,False,https://media.api-sports.io/football/teams/1063.png
+149,1305,Bastia,BAS,France,1905.0,False,https://media.api-sports.io/football/teams/1305.png
+150,87,Amiens,AMI,France,1901.0,False,https://media.api-sports.io/football/teams/87.png
+151,95,Strasbourg,STR,France,1906.0,False,https://media.api-sports.io/football/teams/95.png
+152,110,Estac Troyes,TRO,France,1986.0,False,https://media.api-sports.io/football/teams/110.png
+153,92,Nimes,NIM,France,1937.0,False,https://media.api-sports.io/football/teams/92.png
+154,93,Reims,REI,France,1909.0,False,https://media.api-sports.io/football/teams/93.png
+155,106,Stade Brestois 29,BRE,France,1950.0,False,https://media.api-sports.io/football/teams/106.png
+156,116,Lens,LEN,France,1906.0,False,https://media.api-sports.io/football/teams/116.png
+157,99,Clermont Foot,CLE,France,1990.0,False,https://media.api-sports.io/football/teams/99.png
+158,108,Auxerre,AUX,France,1905.0,False,https://media.api-sports.io/football/teams/108.png
+159,98,Ajaccio,AJA,France,1910.0,False,https://media.api-sports.io/football/teams/98.png
+160,111,Le Havre,HAV,France,1872.0,False,https://media.api-sports.io/football/teams/111.png
+161,114,Paris FC,PAR,France,1969.0,False,https://media.api-sports.io/football/teams/114.png
+162,193,PEC Zwolle,ZWO,Netherlands,1910.0,False,https://media.api-sports.io/football/teams/193.png
+163,194,Ajax,AJA,Netherlands,1900.0,False,https://media.api-sports.io/football/teams/194.png
+164,195,Willem II,WIL,Netherlands,1896.0,False,https://media.api-sports.io/football/teams/195.png
+165,196,Excelsior,EXC,Netherlands,1902.0,False,https://media.api-sports.io/football/teams/196.png
+166,197,PSV Eindhoven,PSV,Netherlands,1913.0,False,https://media.api-sports.io/football/teams/197.png
+167,198,ADO Den Haag,HAA,Netherlands,1905.0,False,https://media.api-sports.io/football/teams/198.png
+168,200,Vitesse,VIT,Netherlands,1892.0,False,https://media.api-sports.io/football/teams/200.png
+169,201,AZ Alkmaar,ALK,Netherlands,1967.0,False,https://media.api-sports.io/football/teams/201.png
+170,202,Groningen,GRO,Netherlands,1971.0,False,https://media.api-sports.io/football/teams/202.png
+171,206,Heracles,HER,Netherlands,1903.0,False,https://media.api-sports.io/football/teams/206.png
+172,207,Utrecht,UTR,Netherlands,1970.0,False,https://media.api-sports.io/football/teams/207.png
+173,209,Feyenoord,FEY,Netherlands,1908.0,False,https://media.api-sports.io/football/teams/209.png
+174,210,Heerenveen,HEE,Netherlands,1920.0,False,https://media.api-sports.io/football/teams/210.png
+175,410,GO Ahead Eagles,EAG,Netherlands,1971.0,False,https://media.api-sports.io/football/teams/410.png
+176,413,NEC Nijmegen,NIJ,Netherlands,1900.0,False,https://media.api-sports.io/football/teams/413.png
+177,414,Roda,ROD,Netherlands,1962.0,False,https://media.api-sports.io/football/teams/414.png
+178,415,Twente,TWE,Netherlands,1965.0,False,https://media.api-sports.io/football/teams/415.png
+179,426,Sparta Rotterdam,SPA,Netherlands,1888.0,False,https://media.api-sports.io/football/teams/426.png
+180,203,NAC Breda,BRE,Netherlands,1912.0,False,https://media.api-sports.io/football/teams/203.png
+181,204,VVV Venlo,VEN,Netherlands,1954.0,False,https://media.api-sports.io/football/teams/204.png
+182,199,De Graafschap,GRA,Netherlands,1954.0,False,https://media.api-sports.io/football/teams/199.png
+183,205,Fortuna Sittard,SIT,Netherlands,1968.0,False,https://media.api-sports.io/football/teams/205.png
+184,208,Emmen,EMM,Netherlands,1985.0,False,https://media.api-sports.io/football/teams/208.png
+185,417,Waalwijk,WAA,Netherlands,1940.0,False,https://media.api-sports.io/football/teams/417.png
+186,416,FC Volendam,VOL,Netherlands,1920.0,False,https://media.api-sports.io/football/teams/416.png
+187,419,Almere City FC,ALM,Netherlands,1932.0,False,https://media.api-sports.io/football/teams/419.png
+188,420,Cambuur,CAM,Netherlands,1964.0,False,https://media.api-sports.io/football/teams/420.png
+189,422,FC Eindhoven,EIN,Netherlands,1909.0,False,https://media.api-sports.io/football/teams/422.png
+190,412,MVV,MAA,Netherlands,1902.0,False,https://media.api-sports.io/football/teams/412.png
+191,409,Dordrecht,DOR,Netherlands,1990.0,False,https://media.api-sports.io/football/teams/409.png
+192,421,Den Bosch,BOS,Netherlands,1964.0,False,https://media.api-sports.io/football/teams/421.png
+193,427,Telstar,STO,Netherlands,1912.0,False,https://media.api-sports.io/football/teams/427.png
+194,211,Benfica,BEN,Portugal,1904.0,False,https://media.api-sports.io/football/teams/211.png
+195,212,FC Porto,POR,Portugal,1893.0,False,https://media.api-sports.io/football/teams/212.png
+196,213,Feirense,FEI,Portugal,1918.0,False,https://media.api-sports.io/football/teams/213.png
+197,214,Maritimo,MAR,Portugal,1910.0,False,https://media.api-sports.io/football/teams/214.png
+198,215,Moreirense,MOR,Portugal,,False,https://media.api-sports.io/football/teams/215.png
+199,217,SC Braga,BRA,Portugal,1921.0,False,https://media.api-sports.io/football/teams/217.png
+200,218,Tondela,TON,Portugal,,False,https://media.api-sports.io/football/teams/218.png
+201,219,Vitoria Setubal,SET,Portugal,1910.0,False,https://media.api-sports.io/football/teams/219.png
+202,221,Belenenses,BEL,Portugal,1919.0,False,https://media.api-sports.io/football/teams/221.png
+203,222,Boavista,,Portugal,1903.0,False,https://media.api-sports.io/football/teams/222.png
+204,223,Chaves,CHA,Portugal,1949.0,False,https://media.api-sports.io/football/teams/223.png
+205,224,Guimaraes,GUI,Portugal,1922.0,False,https://media.api-sports.io/football/teams/224.png
+206,225,Nacional,NAC,Portugal,1910.0,False,https://media.api-sports.io/football/teams/225.png
+207,226,Rio Ave,RIO,Portugal,1939.0,False,https://media.api-sports.io/football/teams/226.png
+208,228,Sporting CP,SPO,Portugal,1906.0,False,https://media.api-sports.io/football/teams/228.png
+209,230,Estoril,EST,Portugal,1939.0,False,https://media.api-sports.io/football/teams/230.png
+210,234,Pacos Ferreira,FER,Portugal,1950.0,False,https://media.api-sports.io/football/teams/234.png
+211,240,Arouca,ARO,Portugal,1951.0,False,https://media.api-sports.io/football/teams/240.png
+212,216,Portimonense,POR,Portugal,1914.0,False,https://media.api-sports.io/football/teams/216.png
+213,220,Aves,AVE,Portugal,1930.0,False,https://media.api-sports.io/football/teams/220.png
+214,227,Santa Clara,SAN,Portugal,1921.0,False,https://media.api-sports.io/football/teams/227.png
+215,242,Famalicao,FAM,Portugal,1931.0,False,https://media.api-sports.io/football/teams/242.png
+216,762,GIL Vicente,VIC,Portugal,1924.0,False,https://media.api-sports.io/football/teams/762.png
+217,231,Farense,FAR,Portugal,1910.0,False,https://media.api-sports.io/football/teams/231.png
+218,810,Vizela,VIZ,Portugal,1939.0,False,https://media.api-sports.io/football/teams/810.png
+219,4716,Casa Pia,CAS,Portugal,1920.0,False,https://media.api-sports.io/football/teams/4716.png
+220,15130,Estrela,,Portugal,2018.0,False,https://media.api-sports.io/football/teams/15130.png
+221,21595,AVS,,Portugal,,False,https://media.api-sports.io/football/teams/21595.png
+222,4724,Alverca,,Portugal,,False,https://media.api-sports.io/football/teams/4724.png

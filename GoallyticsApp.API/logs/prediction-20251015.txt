@@ -1,0 +1,68 @@
+2025-10-15 21:18:09.714 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 21:18:09.933 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 21:18:11.741 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 21:18:39.951 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 21:18:39.951 +03:00 [INF] Starting prediction generation...
+2025-10-15 21:18:46.585 +03:00 [INF] Active predictions to change Inactive status. Total: 0
+2025-10-15 21:18:58.273 +03:00 [INF] Changed Prediction Result count. Total: 0
+2025-10-15 21:18:58.275 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-15 21:18:58.448 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-15 21:27:28.741 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 21:27:28.782 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 21:27:29.205 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 21:27:58.788 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 21:27:58.788 +03:00 [INF] Starting prediction generation...
+2025-10-15 21:28:01.559 +03:00 [INF] Active predictions to change Inactive status. Total: 0
+2025-10-15 21:28:11.970 +03:00 [INF] Changed Prediction Result count. Total: 0
+2025-10-15 21:28:11.971 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-15 21:28:12.209 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-15 21:30:24.023 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 21:30:24.071 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 21:30:24.551 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 21:30:54.081 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 21:30:54.081 +03:00 [INF] Starting prediction generation...
+2025-10-15 21:35:48.394 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 21:35:48.438 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 21:35:48.902 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 21:36:18.440 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 21:36:18.440 +03:00 [INF] Starting prediction generation...
+2025-10-15 21:36:21.469 +03:00 [INF] Active predictions to change Inactive status. Total: 0
+2025-10-15 21:36:54.207 +03:00 [INF] Changed Prediction Result count. Total: 0
+2025-10-15 21:36:54.209 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-15 21:36:54.439 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-15 21:39:27.872 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 21:39:27.913 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 21:39:28.325 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 21:39:57.919 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 21:39:57.920 +03:00 [INF] Starting prediction generation...
+2025-10-15 21:41:12.674 +03:00 [INF] Active predictions to change Inactive status. Total: 0
+2025-10-15 21:41:23.587 +03:00 [INF] Changed Prediction Result count. Total: 0
+2025-10-15 21:41:23.588 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-15 21:41:23.822 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-15 21:48:17.237 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 21:48:17.307 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 21:48:17.908 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 21:48:47.313 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 21:48:47.313 +03:00 [INF] Starting prediction generation...
+2025-10-15 21:48:55.006 +03:00 [INF] Active predictions to change Inactive status. Total: 0
+2025-10-15 21:49:05.628 +03:00 [INF] Changed Prediction Result count. Total: 0
+2025-10-15 21:49:05.629 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-15 21:49:05.876 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-15 22:02:48.490 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 22:02:48.608 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 22:02:49.042 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 22:03:18.616 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 22:03:18.616 +03:00 [INF] Starting prediction generation...
+2025-10-15 22:04:07.811 +03:00 [INF] Active predictions to change Inactive status. Total: 0
+2025-10-15 22:06:51.072 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 22:06:51.232 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 22:06:51.622 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 22:07:41.356 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-15 22:07:41.403 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-15 22:07:41.788 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-15 22:08:13.929 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-15 22:08:13.929 +03:00 [INF] Starting prediction generation...
+2025-10-15 22:08:17.939 +03:00 [INF] Active predictions to change Inactive status. Total: 0
+2025-10-15 22:08:29.209 +03:00 [INF] Changed Prediction Result count. Total: 0
+2025-10-15 22:08:29.210 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-15 22:08:29.434 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors

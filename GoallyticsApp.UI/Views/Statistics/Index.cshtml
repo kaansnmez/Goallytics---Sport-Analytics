@@ -1,0 +1,417 @@
+﻿@model StatisticViewModel
+
+
+<!-- Header Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold text-center mb-4">Tahmin İstatistikleri</h1>
+                <p class="lead text-center text-muted">Detaylı performans metrikleri ve doğruluk analizleri</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Genel İstatistikler -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3 class="text-center mb-4">
+                    <i class="fas fa-chart-bar me-2 text-primary"></i>Genel İstatistikler
+                </h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3 col-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-line fa-2x text-primary mb-3"></i>
+                        <div class="stat-number text-primary">@Model.General.TotalPredictions</div>
+                        <div class="stat-label text-muted">Toplam Tahmin</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-check-circle fa-2x text-success mb-3"></i>
+                        <div class="stat-number text-success">@Model.General.CorrectPredictions</div>
+                        <div class="stat-label text-muted">Doğru Tahmin</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-percent fa-2x text-warning mb-3"></i>
+                        <div class="stat-number text-warning">%@Model.General.AccuracyRate.ToString("F1")</div>
+                        <div class="stat-label text-muted">Doğruluk Oranı</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-futbol fa-2x text-info mb-3"></i>
+                        <div class="stat-number text-info">@Model.General.TotalMatches</div>
+                        <div class="stat-label text-muted">Analiz Edilen Maç</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Haftalık Tahminler Tablosu -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-calendar-week me-2 text-primary"></i>Haftalık Tahminler
+                    </h3>
+                    <div class="btn-group" role="group">
+                        <a href="@Url.Action("Index", new { period = "current" })"
+                           class="btn btn-sm @(Model.CurrentPeriod == "current" ? "btn-primary" : "btn-outline-primary")">
+                            <i class="fas fa-calendar-day me-1"></i>Bu Hafta
+                        </a>
+                        <a href="@Url.Action("Index", new { period = "last" })"
+                           class="btn btn-sm @(Model.CurrentPeriod == "last" ? "btn-primary" : "btn-outline-primary")">
+                            <i class="fas fa-history me-1"></i>Geçen Hafta
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="weeklyPredictionsContainer">
+            
+            @await Html.PartialAsync("_WeeklyPredictionsTable", @Model.WeeklyPredictions)
+        </div>
+    </div>
+</section>
+
+<!-- Market Performance Charts -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3 class="text-center mb-4">
+                    <i class="fas fa-chart-pie me-2 text-success"></i>Market Bazlı Performans
+                </h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Market Accuracy Chart -->
+            <div class="col-lg-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-bar me-2 text-primary"></i>
+                            Market Doğruluk Oranları
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="marketAccuracyChart" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- League Accuracy Chart -->
+            <div class="col-lg-8 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="mb-0">
+                            <i class="fas fa-trophy me-2 text-warning"></i>
+                            Liglere Göre Tahmin Doğrulukları
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="leagueAccuracyChart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Performance Chart -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="mb-0">
+                            <i class="fas fa-calendar-alt me-2 text-info"></i>
+                            Aylık Performans
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="monthlyPerformanceChart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Market Details -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3 class="text-center mb-4">
+                    <i class="fas fa-table me-2 text-primary"></i>Market Bazlı Detaylı İstatistikler
+                </h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- 1X2 Market -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h6 class="mb-0"><i class="fas fa-home me-2"></i>1X2 (Maç Sonucu)</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Toplam Tahmin:</span>
+                                <strong id="market1x2Total">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Doğru:</span>
+                                <strong class="text-success" id="market1x2Correct">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Doğruluk:</span>
+                                <strong class="text-primary" id="market1x2Accuracy">0%</strong>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="market1x2Progress" class="progress-bar bg-primary" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OU 1.5 Market -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-success text-white">
+                        <h6 class="mb-0"><i class="fas fa-arrow-up me-2"></i>Alt/Üst 1.5</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Toplam Tahmin:</span>
+                                <strong id="marketOU15Total">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Doğru:</span>
+                                <strong class="text-success" id="marketOU15Correct">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Doğruluk:</span>
+                                <strong class="text-success" id="marketOU15Accuracy">0%</strong>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="marketOU15Progress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OU 2.5 Market -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-info text-white">
+                        <h6 class="mb-0"><i class="fas fa-arrow-up me-2"></i>Alt/Üst 2.5</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Toplam Tahmin:</span>
+                                <strong id="marketOU25Total">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Doğru:</span>
+                                <strong class="text-success" id="marketOU25Correct">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Doğruluk:</span>
+                                <strong class="text-info" id="marketOU25Accuracy">0%</strong>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="marketOU25Progress" class="progress-bar bg-info" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OU 3.5 Market -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-warning text-dark">
+                        <h6 class="mb-0"><i class="fas fa-arrow-up me-2"></i>Alt/Üst 3.5</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Toplam Tahmin:</span>
+                                <strong id="marketOU35Total">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Doğru:</span>
+                                <strong class="text-success" id="marketOU35Correct">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Doğruluk:</span>
+                                <strong class="text-warning" id="marketOU35Accuracy">0%</strong>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="marketOU35Progress" class="progress-bar bg-warning" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BTTS Market -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-secondary text-white">
+                        <h6 class="mb-0"><i class="fas fa-check-double me-2"></i>BTTS (İki Takım Gol)</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Toplam Tahmin:</span>
+                                <strong id="marketBTTSTotal">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Doğru:</span>
+                                <strong class="text-success" id="marketBTTSCorrect">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Doğruluk:</span>
+                                <strong class="text-secondary" id="marketBTTSAccuracy">0%</strong>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="marketBTTSProgress" class="progress-bar bg-secondary" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overall Stats -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm h-100 border-primary" style="border-width: 2px !important;">
+                    <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <h6 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Genel Ortalama</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Toplam Tahmin:</span>
+                                <strong id="overallTotal">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted">Doğru:</span>
+                                <strong class="text-success" id="overallCorrect">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Ortalama Doğruluk:</span>
+                                <strong class="text-primary" id="overallAccuracy">0%</strong>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="overallProgress" class="progress-bar" role="progressbar" style="width: 0%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Insights -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3 class="text-center mb-4">
+                    <i class="fas fa-lightbulb me-2 text-warning"></i>İçgörüler
+                </h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card text-center border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="fas fa-star fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">En Başarılı Market</h5>
+                        <p class="card-text text-muted">En yüksek doğruluk oranına sahip tahmin türü</p>
+                        <div class="h4 text-warning" id="bestMarket">-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="fas fa-trophy fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">En Başarılı Lig</h5>
+                        <p class="card-text text-muted">Tahminlerin en iyi çalıştığı lig</p>
+                        <div class="h4 text-success" id="bestLeague">-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Ortalama Güven Skoru</h5>
+                        <p class="card-text text-muted">Tahminlerin ortalama güven seviyesi</p>
+                        <div class="h4 text-info" id="avgConfidence">%0</div>
+                        <small class="text-muted">Tüm tahminler</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* ============================================
+   SCRIPTS SECTION - Razor'dan JavaScript'e Veri Aktarımı
+   ============================================ *@
+
+@section scripts {
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <!-- Kendi JavaScript dosyamız (tüm chart fonksiyonları burada) -->
+    <script src="~/js/Statistics/statistics-charts.js"></script>
+
+    <!-- Razor'dan JavaScript'e veri aktarımı -->
+    <script>
+        // 1. C# Model'den JavaScript değişkenlerine veri aktarımı
+        // Html.Raw ile JSON serialize ediyoruz
+        const chartData = @Html.Raw(Json.Serialize(Model.Charts));
+        const marketData = @Html.Raw(Json.Serialize(Model.Markets));
+        const insightsData = @Html.Raw(Json.Serialize(Model.Insights));
+
+        console.log('📊 Model data received from Razor:');
+        console.log('Chart Data:', chartData);
+        console.log('Market Data:', marketData);
+        console.log('Insights Data:', insightsData);
+
+        // 2. Sayfa yüklendiğinde tüm grafikleri başlat
+        // statistics-charts.js dosyasındaki fonksiyonu çağır
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Page loaded, initializing charts...');
+
+            // Ana fonksiyonu çağır (statistics-charts.js'de tanımlı)
+            initializeStatisticsCharts(chartData, marketData, insightsData);
+        });
+    </script>
+}

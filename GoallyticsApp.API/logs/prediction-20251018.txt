@@ -1,0 +1,90 @@
+2025-10-18 15:46:35.787 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-18 15:46:35.849 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-18 15:46:36.646 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-18 15:46:52.014 +03:00 [INF] Fixture sync completed.Id = 1388369 Count = 3
+2025-10-18 15:46:52.099 +03:00 [INF] Fixture sync completed.Id = 1379045 Count = 3
+2025-10-18 15:46:52.184 +03:00 [INF] Fixture sync completed.Id = 1387767 Count = 3
+2025-10-18 15:47:05.864 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-18 15:47:05.866 +03:00 [INF] Starting prediction generation...
+2025-10-18 15:53:44.673 +03:00 [INF] Active predictions to change Inactive status. Total: 7
+2025-10-18 15:53:54.353 +03:00 [INF] Changed Prediction Result count. Total: 7
+2025-10-18 15:53:54.354 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-18 15:53:54.542 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-18 16:01:52.063 +03:00 [INF] Fixture sync completed.Id = 1388369 Count = 5
+2025-10-18 16:01:52.141 +03:00 [INF] Fixture sync completed.Id = 1379045 Count = 5
+2025-10-18 16:01:52.214 +03:00 [INF] Fixture sync completed.Id = 1377931 Count = 5
+2025-10-18 16:01:52.353 +03:00 [INF] Fixture sync completed.Id = 1377929 Count = 5
+2025-10-18 16:01:52.431 +03:00 [INF] Fixture sync completed.Id = 1387767 Count = 5
+2025-10-18 16:16:51.741 +03:00 [INF] Fixture sync completed.Id = 1388369 Count = 5
+2025-10-18 16:16:51.825 +03:00 [INF] Fixture sync completed.Id = 1379045 Count = 5
+2025-10-18 16:16:51.909 +03:00 [INF] Fixture sync completed.Id = 1377931 Count = 5
+2025-10-18 16:16:52.048 +03:00 [INF] Fixture sync completed.Id = 1377929 Count = 5
+2025-10-18 16:16:52.225 +03:00 [INF] Fixture sync completed.Id = 1387767 Count = 5
+2025-10-18 21:38:28.242 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-18 21:38:28.426 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-18 21:38:29.749 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-18 21:38:46.594 +03:00 [INF] Fixture sync completed.Id = 1388369 Count = 23
+2025-10-18 21:38:47.351 +03:00 [INF] Fixture sync completed.Id = 1388370 Count = 23
+2025-10-18 21:38:47.862 +03:00 [INF] Fixture sync completed.Id = 1388366 Count = 23
+2025-10-18 21:38:48.527 +03:00 [INF] Fixture sync completed.Id = 1388367 Count = 23
+2025-10-18 21:38:49.187 +03:00 [INF] Fixture sync completed.Id = 1388365 Count = 23
+2025-10-18 21:38:50.118 +03:00 [INF] Fixture sync completed.Id = 1388363 Count = 23
+2025-10-18 21:38:50.858 +03:00 [INF] Fixture sync completed.Id = 1388362 Count = 23
+2025-10-18 21:38:51.351 +03:00 [INF] Fixture sync completed.Id = 1379045 Count = 23
+2025-10-18 21:38:53.472 +03:00 [INF] Fixture sync completed.Id = 1379040 Count = 23
+2025-10-18 21:38:54.034 +03:00 [INF] Fixture sync completed.Id = 1379044 Count = 23
+2025-10-18 21:38:55.405 +03:00 [INF] Fixture sync completed.Id = 1379039 Count = 23
+2025-10-18 21:38:55.913 +03:00 [INF] Fixture sync completed.Id = 1379041 Count = 23
+2025-10-18 21:38:56.816 +03:00 [INF] Fixture sync completed.Id = 1379046 Count = 23
+2025-10-18 21:38:57.542 +03:00 [INF] Fixture sync completed.Id = 1379042 Count = 23
+2025-10-18 21:38:58.176 +03:00 [INF] Fixture sync completed.Id = 1377931 Count = 23
+2025-10-18 21:38:58.434 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-18 21:38:58.435 +03:00 [INF] Starting prediction generation...
+2025-10-18 21:39:16.099 +03:00 [INF] Fixture sync completed.Id = 1377929 Count = 23
+2025-10-18 21:39:18.528 +03:00 [INF] Fixture sync completed.Id = 1377933 Count = 23
+2025-10-18 21:39:29.119 +03:00 [INF] Fixture sync completed.Id = 1387767 Count = 23
+2025-10-18 21:39:29.127 +03:00 [INF] Active predictions to change Inactive status. Total: 48
+2025-10-18 21:39:29.917 +03:00 [INF] Fixture sync completed.Id = 1387766 Count = 23
+2025-10-18 21:39:30.482 +03:00 [INF] Fixture sync completed.Id = 1387761 Count = 23
+2025-10-18 21:39:30.764 +03:00 [INF] Fixture sync completed.Id = 1380939 Count = 23
+2025-10-18 21:39:31.543 +03:00 [INF] Fixture sync completed.Id = 1380940 Count = 23
+2025-10-18 21:39:32.335 +03:00 [INF] Fixture sync completed.Id = 1380941 Count = 23
+2025-10-18 21:39:39.568 +03:00 [INF] Changed Prediction Result count. Total: 48
+2025-10-18 21:39:39.569 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-18 21:39:39.787 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-18 21:49:02.017 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-18 21:49:02.059 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-18 21:49:02.551 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-18 21:50:37.353 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-18 21:50:37.403 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-18 21:50:37.811 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-18 21:51:10.328 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-18 21:51:10.328 +03:00 [INF] Starting prediction generation...
+2025-10-18 21:51:18.381 +03:00 [INF] Active predictions to change Inactive status. Total: 3
+2025-10-18 21:51:20.620 +03:00 [INF] Fixture sync completed.Id = 1388369 Count = 24
+2025-10-18 21:51:20.714 +03:00 [INF] Fixture sync completed.Id = 1388370 Count = 24
+2025-10-18 21:51:20.805 +03:00 [INF] Fixture sync completed.Id = 1388366 Count = 24
+2025-10-18 21:51:20.897 +03:00 [INF] Fixture sync completed.Id = 1388367 Count = 24
+2025-10-18 21:51:20.978 +03:00 [INF] Fixture sync completed.Id = 1388365 Count = 24
+2025-10-18 21:51:21.067 +03:00 [INF] Fixture sync completed.Id = 1388363 Count = 24
+2025-10-18 21:51:21.159 +03:00 [INF] Fixture sync completed.Id = 1388362 Count = 24
+2025-10-18 21:51:21.240 +03:00 [INF] Fixture sync completed.Id = 1379045 Count = 24
+2025-10-18 21:51:21.321 +03:00 [INF] Fixture sync completed.Id = 1379040 Count = 24
+2025-10-18 21:51:21.417 +03:00 [INF] Fixture sync completed.Id = 1379044 Count = 24
+2025-10-18 21:51:21.491 +03:00 [INF] Fixture sync completed.Id = 1379039 Count = 24
+2025-10-18 21:51:21.583 +03:00 [INF] Fixture sync completed.Id = 1379041 Count = 24
+2025-10-18 21:51:21.686 +03:00 [INF] Fixture sync completed.Id = 1379046 Count = 24
+2025-10-18 21:51:21.780 +03:00 [INF] Fixture sync completed.Id = 1379042 Count = 24
+2025-10-18 21:51:21.864 +03:00 [INF] Fixture sync completed.Id = 1377931 Count = 24
+2025-10-18 21:51:21.941 +03:00 [INF] Fixture sync completed.Id = 1377929 Count = 24
+2025-10-18 21:51:22.016 +03:00 [INF] Fixture sync completed.Id = 1377933 Count = 24
+2025-10-18 21:51:22.107 +03:00 [INF] Fixture sync completed.Id = 1377932 Count = 24
+2025-10-18 21:51:22.182 +03:00 [INF] Fixture sync completed.Id = 1387767 Count = 24
+2025-10-18 21:51:22.268 +03:00 [INF] Fixture sync completed.Id = 1387766 Count = 24
+2025-10-18 21:51:22.346 +03:00 [INF] Fixture sync completed.Id = 1387761 Count = 24
+2025-10-18 21:51:22.441 +03:00 [INF] Fixture sync completed.Id = 1380939 Count = 24
+2025-10-18 21:51:22.514 +03:00 [INF] Fixture sync completed.Id = 1380940 Count = 24
+2025-10-18 21:51:22.590 +03:00 [INF] Fixture sync completed.Id = 1380941 Count = 24
+2025-10-18 21:51:43.417 +03:00 [INF] Changed Prediction Result count. Total: 3
+2025-10-18 21:51:43.419 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-18 21:51:43.687 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors

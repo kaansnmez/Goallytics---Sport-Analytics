@@ -1,0 +1,47 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-futbol me-2"></i>Goallytics
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                @if(User.IsInRole("Member") || User.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-action="Index" asp-controller="Home">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-controller="Statistics">İstatistikler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-controller="Fixtures" >Fikstür</a>
+                    </li>
+                    <li class="nav-item" >
+                        <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
+                            <button type="submit" class="nav-link btn btn-link">
+                                <i class="fas fa-sign-out-alt me-1"></i>Çıkış Yap
+                            </button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item" id="loginNavItem" style="display: none;">
+                        <a class="nav-link" asp-action="Login" asp-controller="Auth">
+                            <i class="fas fa-sign-in-alt me-1"></i>Giriş Yap
+                        </a>
+                    </li>
+                    <li class="nav-item" id="registerNavItem" style="display: none;">
+                        <a class="nav-link" asp-action="Register" asp-controller="Auth">
+                            <i class="fas fa-user-plus me-1"></i>Kayıt Ol
+                        </a>
+                    </li>
+                }
+                
+            </ul>
+        </div>
+    </div>
+</nav>

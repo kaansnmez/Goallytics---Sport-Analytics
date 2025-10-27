@@ -1,0 +1,13 @@
+# Uygulama Ayarları - Güvenlik Nedeniyle Hariç Tutulur
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.Local.json
+.vs/
+# Eğer tüm appsettings.json dosyalarını (ana dosya hariç) hariç tutmak isterseniz:
+# appsettings.*.json
+
+# Visual Studio / IDE tarafından oluşturulan dosyalar
+bin/
+obj/
+*.user
+*.suo

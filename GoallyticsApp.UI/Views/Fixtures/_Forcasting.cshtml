@@ -1,0 +1,185 @@
+﻿@model GetPredictionRequestDtoModel
+
+<div class="details-content">
+    <h6 class="mb-3">
+        <i class="fas fa-crystal-ball me-2 text-success"></i>Tahminler
+    </h6>
+
+    <!-- Category tabs (click to toggle section) -->
+    <div class="btn-group btn-group-sm mb-3 prediction-tabs" role="group">
+        <button type="button" class="btn btn-outline-success active" data-predcat="match" onclick="showPredictionGroup(this, 'match')">Maç Tahmini</button>
+        <button type="button" class="btn btn-outline-primary" data-predcat="overunder15" onclick="showPredictionGroup(this, 'overunder15')">1.5 Alt/Üst</button>
+        <button type="button" class="btn btn-outline-primary" data-predcat="overunder25" onclick="showPredictionGroup(this, 'overunder25')">2.5 Alt/Üst</button>
+        <button type="button" class="btn btn-outline-primary" data-predcat="overunder35" onclick="showPredictionGroup(this, 'overunder35')">3.5 Alt/Üst</button>
+        <button type="button" class="btn btn-outline-secondary" data-predcat="btts" onclick="showPredictionGroup(this, 'btts')">İki Takım Gol</button>
+    </div>
+
+    <!-- Maç Tahmini (foreach-friendly) -->
+    <div class="prediction-group" data-group="match">
+        @if (Model?.Result1x2?.Market != null && !string.IsNullOrEmpty(Model.Result1x2.Analysis))
+        {
+            try
+                {
+                var jsonAnalysis = JsonSerializer.Deserialize<AnalysisJsonModel>(Model.Result1x2.Analysis, new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                });
+                <ul class="list-inline mb-0 prediction-list">
+                    <li class="list-inline-item mb-2">
+                        <span class="badge bg-success px-3 py-2">@($"Ev • %{jsonAnalysis.home_prop} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge bg-secondary px-3 py-2">@($"Beraberlik • %{jsonAnalysis.draw_prop} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge bg-primary px-3 py-2">@($"Deplasman • %{jsonAnalysis.away_prop} • ")</span>
+                    </li>
+                        </ul>
+                }
+            catch (Exception ex)
+                {
+                <div class="alert alert-warning">Analiz verisi okunamadı: @ex.Message</div>
+                }
+        }
+        else
+        {
+            <div class="alert alert-info">1X2 tahmini bulunmuyor</div>
+        }
+        
+    </div>
+
+    <!-- 1.5 Alt/Üst (foreach-friendly) -->
+    <div class="prediction-group d-none" data-group="overunder15">
+        <ul class="list-inline mb-0 prediction-list">
+            @if (Model.OU15.Market != null)
+            {
+                var conf_away = Math.Round(100 - Model.OU15.Confidence, 2);
+               
+                @if(Model.OU15.Prediction=="Over")
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU15.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Üst 1.5 • %{Model.OU15.Confidence} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU15.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Alt 1.5 • %{conf_away} • ")</span>
+                    </li>
+                }
+                else
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU15.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Üst 1.5 • %{conf_away} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU15.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Alt 1.5 • %{Model.OU15.Confidence} • ")</span>
+                    </li>
+                }
+ 
+            }
+            else
+            {
+                <div class="alert alert-info">1.5 Alt/Üst tahmini bulunmuyor</div>
+            }
+        </ul>
+    </div>
+    <!-- 2.5 Alt/Üst (foreach-friendly) -->
+    <div class="prediction-group d-none" data-group="overunder25">
+        <ul class="list-inline mb-0 prediction-list">
+            @if (Model.OU25.Market != null)
+            {
+                var conf_away = Math.Round(100 - Model.OU25.Confidence, 2);
+                
+                @if (Model.OU25.Prediction == "Over")
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU25.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Üst 2.5 • %{Model.OU25.Confidence} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU25.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Alt 2.5 • %{conf_away} • ")</span>
+                    </li>
+                }
+                else
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU25.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Üst 2.5 • %{conf_away} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU25.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Alt 2.5 • %{Model.OU25.Confidence} • ")</span>
+                    </li>
+                }
+
+            }
+            else
+            {
+                <div class="alert alert-info">2.5 Alt/Üst tahmini bulunmuyor</div>
+            }
+        </ul>
+    </div>
+    <!-- 3.5 Alt/Üst (foreach-friendly) -->
+    <div class="prediction-group d-none" data-group="overunder35">
+        <ul class="list-inline mb-0 prediction-list">
+            @if (Model.OU35.Market != null)
+            {
+                var conf_away = Math.Round(100 - Model.OU35.Confidence, 2);
+                @if (Model.OU35.Prediction == "Over")
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU35.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Üst 3.5 • %{Model.OU35.Confidence} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU35.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Alt 3.5 • %{conf_away} • ")</span>
+                    </li>
+                }
+                else
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU35.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Üst 3.5 • %{conf_away} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.OU35.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Alt 3.5 • %{Model.OU35.Confidence} • ")</span>
+                    </li>
+                }
+
+            }
+            else
+            {
+                <div class="alert alert-info">3.5 Alt/Üst tahmini bulunmuyor</div>
+            }
+        </ul>
+    </div>
+
+    <!-- BTTS (foreach-friendly) -->
+    <div class="prediction-group d-none" data-group="btts">
+        <ul class="list-inline mb-0 prediction-list">
+            @if (Model.BTTS.Market != null)
+            {
+                var conf_away = Math.Round(100 - Model.BTTS.Confidence, 2);
+                @if (Model.BTTS.Prediction == "Yes")
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.BTTS.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"İki Takım Gol Atar • %{Model.BTTS.Confidence} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.BTTS.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Gol Olmaz • %{conf_away} • ")</span>
+                    </li>
+                        
+                }
+                else
+                {
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.BTTS.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"İki Takım Gol Atar • %{conf_away} • ")</span>
+                    </li>
+                    <li class="list-inline-item mb-2">
+                        <span class="badge @(Model.BTTS.Confidence >= 50 ? "bg-success" : "bg-secondary") px-3 py-2">@($"Gol Olmaz • %{Model.BTTS.Confidence} • ")</span>
+                    </li>
+
+                        
+                }
+                
+            }
+            else
+            {
+                <div class="alert alert-info">BTTS tahmini bulunmuyor</div>
+            }
+        </ul>
+    </div>
+</div>

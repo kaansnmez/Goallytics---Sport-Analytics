@@ -1,0 +1,360 @@
+2025-10-19 17:52:04.058 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-19 17:52:04.233 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-19 17:52:06.119 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-19 17:52:34.241 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-19 17:52:34.241 +03:00 [INF] Starting prediction generation...
+2025-10-19 17:53:07.650 +03:00 [ERR] Failed executing DbCommand (46,814ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[AwayScore], [f].[AwayTeamId], [f].[DateUtc], [f].[Day], [f].[FixturesId], [f].[HomeScore], [f].[HomeTeamId], [f].[LeagueApiId], [f].[Month], [f].[RoundApiId], [f].[SeasonApiId], [f].[StatusShort], [f].[Year], [f0].[Id], [f0].[AwayScore], [f0].[AwayTeamId], [f0].[Ball_Possession], [f0].[Blocked_Shots], [f0].[Corner_Kicks], [f0].[DateUtc], [f0].[FixtureId], [f0].[Fouls], [f0].[Goalkeeper_Saves], [f0].[HomeScore], [f0].[HomeTeamId], [f0].[LeagueApiId], [f0].[Offsides], [f0].[Passes_Percent], [f0].[Passes_accurate], [f0].[Red_Cards], [f0].[SeasonApiId], [f0].[Shots_insidebox], [f0].[Shots_off_Goal], [f0].[Shots_on_Goal], [f0].[Shots_outsidebox], [f0].[TeamId], [f0].[TeamName], [f0].[Total_Shots], [f0].[Total_passes], [f0].[Yellow_Cards]
+FROM [Fixtures] AS [f]
+LEFT JOIN [FixtureStat] AS [f0] ON [f].[FixturesId] = [f0].[FixtureId] AND [f].[HomeTeamId] = [f0].[HomeTeamId]
+WHERE [f].[StatusShort] = N'NS' AND [f].[DateUtc] < @__today_0
+ORDER BY [f].[Id]
+2025-10-19 17:53:07.728 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'GoallyticsApp.Persistance.Context.MatchContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:86030dcd-2077-493b-adba-83445223796b
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:86030dcd-2077-493b-adba-83445223796b
+Error Number:-2,State:0,Class:11
+2025-10-19 17:53:13.241 +03:00 [ERR] Failed executing DbCommand (33,217ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [p].[Id], [p].[AnalysisJson], [p].[AwayExpected], [p].[AwayTeamId], [p].[Confidence], [p].[CreatedAt], [p].[DateUtc], [p].[ExpectedGoals], [p].[FixtureId], [p].[Forecast], [p].[HomeExpected], [p].[HomeTeamId], [p].[IsActive], [p].[LeaugeId], [p].[Market], [p].[Result]
+FROM [Predictions] AS [p]
+ORDER BY [p].[CreatedAt] DESC
+2025-10-19 17:53:13.242 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'GoallyticsApp.Persistance.Context.MatchContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:142cdd95-1ac5-47ce-908b-0215e8c55149
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:142cdd95-1ac5-47ce-908b-0215e8c55149
+Error Number:-2,State:0,Class:11
+2025-10-19 17:53:13.299 +03:00 [ERR] Fixture sync failed.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at GoallyticsApp.Persistance.Repositories.Repository`1.QueryToListAsync(Expression`1 filter, Expression`1 orderByDescending, Int32 ntake, CancellationToken ct, Expression`1[] includes) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Persistance\Repositories\Repository[T].cs:line 75
+   at GoallyticsApp.Application.Features.CQRS.Handlers.ExternalApi.ExternalUpdateFixtureByIdCommandHandler.Handle(ExternalUpdateFixtureByIdCommand request, CancellationToken cancellationToken) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Application\Features\CQRS\Handlers\ExternalApi\ExternalUpdateFixtureByIdCommandHandler.cs:line 61
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at ExternalAPI.ExternalAPI.FixtureSyncHostedService.ExecuteAsync(CancellationToken stoppingToken) in D:\c# udemy\WebApi\GoallyticsApp\ExternalAPI\ExternalAPI\FixtureSyncHostedService.cs:line 47
+ClientConnectionId:86030dcd-2077-493b-adba-83445223796b
+Error Number:-2,State:0,Class:11
+2025-10-19 17:53:14.136 +03:00 [ERR] Prediction generation failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at GoallyticsApp.Persistance.Repositories.Repository`1.QueryToListAsync(Expression`1 filter, Expression`1 orderByDescending, Int32 ntake, CancellationToken ct, Expression`1[] includes) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Persistance\Repositories\Repository[T].cs:line 75
+   at GoallyticsApp.Application.Features.CQRS.Handlers.Forcast.GeneratePredictionsCommandHandler.Handle(GeneratePredictionsCommand request, CancellationToken ct) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Application\Features\CQRS\Handlers\Forcast\GeneratePredictionsCommandHandler.cs:line 36
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at GoallyticsApp.Prediction.Services.PredictionHostedService.ExecuteAsync(CancellationToken stoppingToken) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Prediction\Services\PredictionHostedService.cs:line 49
+ClientConnectionId:142cdd95-1ac5-47ce-908b-0215e8c55149
+Error Number:-2,State:0,Class:11
+2025-10-19 17:53:16.358 +03:00 [ERR] Failed executing DbCommand (30,009ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[AwayScore], [f].[AwayTeamId], [f].[DateUtc], [f].[Day], [f].[FixturesId], [f].[HomeScore], [f].[HomeTeamId], [f].[LeagueApiId], [f].[Month], [f].[RoundApiId], [f].[SeasonApiId], [f].[StatusShort], [f].[Year], [l].[Id], [l].[Code], [l].[Country], [l].[LeagueApiId], [l].[Name], [p].[Id], [p].[AnalysisJson], [p].[AwayExpected], [p].[AwayTeamId], [p].[Confidence], [p].[CreatedAt], [p].[DateUtc], [p].[ExpectedGoals], [p].[FixtureId], [p].[Forecast], [p].[HomeExpected], [p].[HomeTeamId], [p].[IsActive], [p].[LeaugeId], [p].[Market], [p].[Result]
+FROM [Fixtures] AS [f]
+INNER JOIN [Leagues] AS [l] ON [f].[LeagueApiId] = [l].[LeagueApiId]
+LEFT JOIN [Predictions] AS [p] ON [f].[FixturesId] = [p].[FixtureId]
+ORDER BY [f].[Id], [l].[Id]
+2025-10-19 17:53:16.359 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'GoallyticsApp.Persistance.Context.MatchContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:885909f7-c88d-4e51-aadb-ebca65f72966
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:885909f7-c88d-4e51-aadb-ebca65f72966
+Error Number:-2,State:0,Class:11
+2025-10-19 17:53:24.519 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at GoallyticsApp.Persistance.Repositories.Repository`1.QueryToListAsync(Expression`1 filter, Expression`1 orderByDescending, Int32 ntake, CancellationToken ct, Expression`1[] includes) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Persistance\Repositories\Repository[T].cs:line 75
+   at GoallyticsApp.Application.Features.CQRS.Handlers.Statistics.GetAllStatisticQueryRequestHandler.ChartsData(CancellationToken ct) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Application\Features\CQRS\Handlers\Statistics\GetAllStatisticQueryRequestHandler.cs:line 122
+   at GoallyticsApp.Application.Features.CQRS.Handlers.Statistics.GetAllStatisticQueryRequestHandler.Handle(GetAllStatisticQueryRequest request, CancellationToken cancellationToken) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.Application\Features\CQRS\Handlers\Statistics\GetAllStatisticQueryRequestHandler.cs:line 40
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at GoallyticsApp.API.Controllers.StatisticController.GetStatisticsByPeriod(GetAllStatisticQueryRequest request) in D:\c# udemy\WebApi\GoallyticsApp\GoallyticsApp.API\Controllers\StatisticController.cs:line 24
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:885909f7-c88d-4e51-aadb-ebca65f72966
+Error Number:-2,State:0,Class:11
+2025-10-19 17:54:01.123 +03:00 [ERR] Failed executing DbCommand (30,013ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[AwayScore], [f].[AwayTeamId], [f].[DateUtc], [f].[Day], [f].[FixturesId], [f].[HomeScore], [f].[HomeTeamId], [f].[LeagueApiId], [f].[Month], [f].[RoundApiId], [f].[SeasonApiId], [f].[StatusShort], [f].[Year], [l].[Id], [l].[Code], [l].[Country], [l].[LeagueApiId], [l].[Name], [p].[Id], [p].[AnalysisJson], [p].[AwayExpected], [p].[AwayTeamId], [p].[Confidence], [p].[CreatedAt], [p].[DateUtc], [p].[ExpectedGoals], [p].[FixtureId], [p].[Forecast], [p].[HomeExpected], [p].[HomeTeamId], [p].[IsActive], [p].[LeaugeId], [p].[Market], [p].[Result]
+FROM [Fixtures] AS [f]
+INNER JOIN [Leagues] AS [l] ON [f].[LeagueApiId] = [l].[LeagueApiId]
+LEFT JOIN [Predictions] AS [p] ON [f].[FixturesId] = [p].[FixtureId]
+ORDER BY [f].[Id], [l].[Id]
+2025-10-19 17:54:01.124 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'GoallyticsApp.Persistance.Context.MatchContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:885909f7-c88d-4e51-aadb-ebca65f72966
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Bekleme işlem zamanı aşıldı.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:885909f7-c88d-4e51-aadb-ebca65f72966
+Error Number:-2,State:0,Class:11
+2025-10-19 17:55:47.650 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-19 17:55:47.704 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-19 17:55:48.138 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-19 17:56:03.735 +03:00 [INF] Fixture sync completed.Id = 1388369 Count = 37
+2025-10-19 17:56:03.855 +03:00 [INF] Fixture sync completed.Id = 1388370 Count = 37
+2025-10-19 17:56:03.975 +03:00 [INF] Fixture sync completed.Id = 1388366 Count = 37
+2025-10-19 17:56:04.053 +03:00 [INF] Fixture sync completed.Id = 1388367 Count = 37
+2025-10-19 17:56:04.156 +03:00 [INF] Fixture sync completed.Id = 1388365 Count = 37
+2025-10-19 17:56:04.282 +03:00 [INF] Fixture sync completed.Id = 1388363 Count = 37
+2025-10-19 17:56:04.422 +03:00 [INF] Fixture sync completed.Id = 1388362 Count = 37
+2025-10-19 17:56:04.550 +03:00 [INF] Fixture sync completed.Id = 1388364 Count = 37
+2025-10-19 17:56:04.713 +03:00 [INF] Fixture sync completed.Id = 1379045 Count = 37
+2025-10-19 17:56:04.808 +03:00 [INF] Fixture sync completed.Id = 1379040 Count = 37
+2025-10-19 17:56:04.936 +03:00 [INF] Fixture sync completed.Id = 1379044 Count = 37
+2025-10-19 17:56:05.020 +03:00 [INF] Fixture sync completed.Id = 1379039 Count = 37
+2025-10-19 17:56:05.125 +03:00 [INF] Fixture sync completed.Id = 1379041 Count = 37
+2025-10-19 17:56:05.208 +03:00 [INF] Fixture sync completed.Id = 1379046 Count = 37
+2025-10-19 17:56:05.300 +03:00 [INF] Fixture sync completed.Id = 1379042 Count = 37
+2025-10-19 17:56:05.379 +03:00 [INF] Fixture sync completed.Id = 1379047 Count = 37
+2025-10-19 17:56:05.473 +03:00 [INF] Fixture sync completed.Id = 1377931 Count = 37
+2025-10-19 17:56:05.577 +03:00 [INF] Fixture sync completed.Id = 1377929 Count = 37
+2025-10-19 17:56:05.668 +03:00 [INF] Fixture sync completed.Id = 1377933 Count = 37
+2025-10-19 17:56:05.749 +03:00 [INF] Fixture sync completed.Id = 1377932 Count = 37
+2025-10-19 17:56:05.841 +03:00 [INF] Fixture sync completed.Id = 1377926 Count = 37
+2025-10-19 17:56:05.942 +03:00 [INF] Fixture sync completed.Id = 1377925 Count = 37
+2025-10-19 17:56:06.107 +03:00 [INF] Fixture sync completed.Id = 1377928 Count = 37
+2025-10-19 17:56:06.236 +03:00 [INF] Fixture sync completed.Id = 1387767 Count = 37
+2025-10-19 17:56:06.326 +03:00 [INF] Fixture sync completed.Id = 1387766 Count = 37
+2025-10-19 17:56:06.406 +03:00 [INF] Fixture sync completed.Id = 1387761 Count = 37
+2025-10-19 17:56:06.487 +03:00 [INF] Fixture sync completed.Id = 1387764 Count = 37
+2025-10-19 17:56:06.601 +03:00 [INF] Fixture sync completed.Id = 1387762 Count = 37
+2025-10-19 17:56:06.687 +03:00 [INF] Fixture sync completed.Id = 1380939 Count = 37
+2025-10-19 17:56:06.761 +03:00 [INF] Fixture sync completed.Id = 1380940 Count = 37
+2025-10-19 17:56:06.862 +03:00 [INF] Fixture sync completed.Id = 1380941 Count = 37
+2025-10-19 17:56:06.944 +03:00 [INF] Fixture sync completed.Id = 1380942 Count = 37
+2025-10-19 17:56:07.031 +03:00 [INF] Fixture sync completed.Id = 1380943 Count = 37
+2025-10-19 17:56:07.130 +03:00 [INF] Fixture sync completed.Id = 1380946 Count = 37
+2025-10-19 17:56:07.234 +03:00 [INF] Fixture sync completed.Id = 1380945 Count = 37
+2025-10-19 17:56:07.321 +03:00 [INF] Fixture sync completed.Id = 1380944 Count = 37
+2025-10-19 17:56:07.398 +03:00 [INF] Fixture sync completed.Id = 1380947 Count = 37
+2025-10-19 17:56:17.714 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-19 17:56:17.714 +03:00 [INF] Starting prediction generation...
+2025-10-19 17:56:44.975 +03:00 [INF] Active predictions to change Inactive status. Total: 33
+2025-10-19 17:57:10.716 +03:00 [INF] Changed Prediction Result count. Total: 33
+2025-10-19 17:57:11.175 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-19 17:57:19.346 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors
+2025-10-19 18:00:20.668 +03:00 [INF] PredictionHostedService initialized with interval : 12 hours
+2025-10-19 18:00:20.710 +03:00 [INF] PredictionHostedService waiting 30 seconds before first run...
+2025-10-19 18:00:21.200 +03:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-10-19 18:00:37.263 +03:00 [INF] Fixture sync completed.Id = 1388369 Count = 47
+2025-10-19 18:00:37.347 +03:00 [INF] Fixture sync completed.Id = 1388370 Count = 47
+2025-10-19 18:00:37.608 +03:00 [INF] Fixture sync completed.Id = 1388366 Count = 47
+2025-10-19 18:00:37.693 +03:00 [INF] Fixture sync completed.Id = 1388367 Count = 47
+2025-10-19 18:00:37.904 +03:00 [INF] Fixture sync completed.Id = 1388365 Count = 47
+2025-10-19 18:00:38.030 +03:00 [INF] Fixture sync completed.Id = 1388363 Count = 47
+2025-10-19 18:00:38.152 +03:00 [INF] Fixture sync completed.Id = 1388362 Count = 47
+2025-10-19 18:00:38.306 +03:00 [INF] Fixture sync completed.Id = 1388364 Count = 47
+2025-10-19 18:00:38.400 +03:00 [INF] Fixture sync completed.Id = 1379045 Count = 47
+2025-10-19 18:00:38.500 +03:00 [INF] Fixture sync completed.Id = 1379040 Count = 47
+2025-10-19 18:00:38.607 +03:00 [INF] Fixture sync completed.Id = 1379044 Count = 47
+2025-10-19 18:00:38.762 +03:00 [INF] Fixture sync completed.Id = 1379039 Count = 47
+2025-10-19 18:00:38.890 +03:00 [INF] Fixture sync completed.Id = 1379041 Count = 47
+2025-10-19 18:00:39.022 +03:00 [INF] Fixture sync completed.Id = 1379046 Count = 47
+2025-10-19 18:00:39.130 +03:00 [INF] Fixture sync completed.Id = 1379042 Count = 47
+2025-10-19 18:00:39.264 +03:00 [INF] Fixture sync completed.Id = 1379047 Count = 47
+2025-10-19 18:00:39.434 +03:00 [INF] Fixture sync completed.Id = 1390901 Count = 47
+2025-10-19 18:00:39.565 +03:00 [INF] Fixture sync completed.Id = 1390900 Count = 47
+2025-10-19 18:00:39.726 +03:00 [INF] Fixture sync completed.Id = 1390908 Count = 47
+2025-10-19 18:00:39.911 +03:00 [INF] Fixture sync completed.Id = 1390907 Count = 47
+2025-10-19 18:00:40.076 +03:00 [INF] Fixture sync completed.Id = 1390902 Count = 47
+2025-10-19 18:00:40.153 +03:00 [INF] Fixture sync completed.Id = 1390905 Count = 47
+2025-10-19 18:00:40.231 +03:00 [INF] Fixture sync completed.Id = 1390899 Count = 47
+2025-10-19 18:00:40.376 +03:00 [INF] Fixture sync completed.Id = 1390904 Count = 47
+2025-10-19 18:00:40.592 +03:00 [INF] Fixture sync completed.Id = 1390906 Count = 47
+2025-10-19 18:00:40.804 +03:00 [INF] Fixture sync completed.Id = 1390903 Count = 47
+2025-10-19 18:00:40.975 +03:00 [INF] Fixture sync completed.Id = 1377931 Count = 47
+2025-10-19 18:00:41.139 +03:00 [INF] Fixture sync completed.Id = 1377929 Count = 47
+2025-10-19 18:00:41.264 +03:00 [INF] Fixture sync completed.Id = 1377933 Count = 47
+2025-10-19 18:00:41.451 +03:00 [INF] Fixture sync completed.Id = 1377932 Count = 47
+2025-10-19 18:00:41.534 +03:00 [INF] Fixture sync completed.Id = 1377926 Count = 47
+2025-10-19 18:00:41.649 +03:00 [INF] Fixture sync completed.Id = 1377925 Count = 47
+2025-10-19 18:00:41.777 +03:00 [INF] Fixture sync completed.Id = 1377928 Count = 47
+2025-10-19 18:00:41.949 +03:00 [INF] Fixture sync completed.Id = 1387767 Count = 47
+2025-10-19 18:00:42.087 +03:00 [INF] Fixture sync completed.Id = 1387766 Count = 47
+2025-10-19 18:00:42.206 +03:00 [INF] Fixture sync completed.Id = 1387761 Count = 47
+2025-10-19 18:00:42.295 +03:00 [INF] Fixture sync completed.Id = 1387764 Count = 47
+2025-10-19 18:00:42.378 +03:00 [INF] Fixture sync completed.Id = 1387762 Count = 47
+2025-10-19 18:00:42.489 +03:00 [INF] Fixture sync completed.Id = 1380939 Count = 47
+2025-10-19 18:00:42.640 +03:00 [INF] Fixture sync completed.Id = 1380940 Count = 47
+2025-10-19 18:00:42.758 +03:00 [INF] Fixture sync completed.Id = 1380941 Count = 47
+2025-10-19 18:00:42.925 +03:00 [INF] Fixture sync completed.Id = 1380942 Count = 47
+2025-10-19 18:00:43.008 +03:00 [INF] Fixture sync completed.Id = 1380943 Count = 47
+2025-10-19 18:00:43.147 +03:00 [INF] Fixture sync completed.Id = 1380946 Count = 47
+2025-10-19 18:00:43.275 +03:00 [INF] Fixture sync completed.Id = 1380945 Count = 47
+2025-10-19 18:00:43.373 +03:00 [INF] Fixture sync completed.Id = 1380944 Count = 47
+2025-10-19 18:00:43.482 +03:00 [INF] Fixture sync completed.Id = 1380947 Count = 47
+2025-10-19 18:00:50.718 +03:00 [INF] PredictionHostedService started. Running every "12:00:00"
+2025-10-19 18:00:50.718 +03:00 [INF] Starting prediction generation...
+2025-10-19 18:02:58.767 +03:00 [INF] Active predictions to change Inactive status. Total: 24
+2025-10-19 18:04:08.233 +03:00 [INF] Changed Prediction Result count. Total: 24
+2025-10-19 18:04:08.235 +03:00 [INF] Prediction generation canceled.Last prediction is ["GoallyticsApp.Domain.Entities.MatchEntities.Prediction"] .
+2025-10-19 18:04:08.549 +03:00 [INF] Prediction generation complete: 0/0 predictions, 0 skipped, 0 errors

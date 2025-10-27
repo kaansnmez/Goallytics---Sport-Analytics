@@ -1,0 +1,93 @@
+﻿@model List<WeeklyPredictionRowModel>
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="weeklyPredictionsTable">
+                <thead class="table-light">
+                    <tr>
+                        <th class="px-4 py-3">Tarih</th>
+                        <th class="py-3">Lig</th>
+                        <th class="py-3">Maç</th>
+                        <th class="py-3 text-center">Market</th>
+                        <th class="py-3 text-center">Tahmin</th>
+                        <th class="py-3 text-center">Güven</th>
+                        <th class="py-3 text-center">Sonuç</th>
+                        <th class="py-3 text-center">Durum</th>
+                    </tr>
+                </thead>
+                <tbody id="predictionsTableBody">
+                     @if (Model == null)
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center py-5">
+                                <div class="text-muted">Veri bulunamadı</div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var row in Model)
+                        {
+                            // Dynamic property access helpers
+                            var t = row.GetType();
+                            string dateStr = t.GetProperty("Date")?.GetValue(row, null)?.ToString() ?? "-";
+                            string league = t.GetProperty("League")?.GetValue(row, null)?.ToString() ?? "-";
+                            string home = t.GetProperty("HomeTeam")?.GetValue(row, null)?.ToString() ?? "";
+                            string away = t.GetProperty("AwayTeam")?.GetValue(row, null)?.ToString() ?? "";
+                            string match = string.IsNullOrWhiteSpace(home) && string.IsNullOrWhiteSpace(away) ? "-" : ($"{home} - {away}");
+                            string market = t.GetProperty("Market")?.GetValue(row, null)?.ToString() ?? "-";
+                            string prediction = t.GetProperty("Prediction")?.GetValue(row, null)?.ToString() ?? "-";
+                            var confObj = t.GetProperty("Confidence")?.GetValue(row, null);
+                            string confidence = confObj == null ? "-" : (confObj is double d ? ("%"+d.ToString()) : confObj.ToString());
+                            string result = t.GetProperty("Result")?.GetValue(row, null)?.ToString() ?? "-";
+                            var isCorrectObj = t.GetProperty("IsCorrect")?.GetValue(row, null);
+                            bool? isCorrect = isCorrectObj as bool? ?? (isCorrectObj is bool b ? b : (bool?)null);
+                            string status = t.GetProperty("Status")?.GetValue(row, null)?.ToString() ?? "-";
+
+                            var rowClass = isCorrect == true ? "table-success-subtle" : isCorrect == false ? "table-danger-subtle" : string.Empty;
+                            var statusBadge = status?.ToLower() == "correct" || isCorrect == true ? "success"
+                            : status?.ToLower() == "incorrect" || isCorrect == false ? "danger"
+                            : "secondary";
+                            <tr class="prediction-row @rowClass">
+                                <td class="px-4">@dateStr</td>
+                                <td>@league</td>
+                                <td>@match</td>
+                                <td class="text-center">
+                                    <span class="badge bg-light text-dark">@market</span>
+                                </td>
+                                <td class="text-center">@prediction</td>
+                                <td class="text-center">
+                                    <span class="badge bg-primary-subtle text-primary">@confidence</span>
+                                </td>
+                                <td class="text-center">@result</td>
+                                <td class="text-center">
+                                    <span class="badge bg-@statusBadge text-white">@(isCorrect == true ? "Doğru" : isCorrect == false ? "Yanlış" : status)</span>
+                                </td>
+                            </tr>
+                        }
+                    } 
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer bg-white border-top-0 py-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="text-muted small">
+                <span id="showingText">Gösterilen: -</span>
+            </div>
+            <nav>
+                <ul class="pagination pagination-sm mb-0" id="paginationNav">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" onclick="return false;">Önceki</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#" onclick="return false;">1</a>
+                    </li>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" onclick="return false;">Sonraki</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

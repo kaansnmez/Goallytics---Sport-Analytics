@@ -1,0 +1,450 @@
+﻿@model DetailsStatDtoModel
+
+<div class="details-content">
+    <!-- H2H örnek tablo -->
+    <div class="mb-3">
+        <h6 class="mb-2">Karşılıklı Maçlar (H2H)</h6>
+        <table class="table table-sm h2h-table mb-0">
+            
+                <thead>
+                    <tr>
+                        <th class="text-muted">Tarih</th>
+                        <th class="text-muted">Ev</th>
+                        <th class="text-muted">Skor</th>
+                        <th class="text-muted">Deplasman</th>
+                        <th class="text-muted">Lig</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @if(Model.H2HMatch!=null)
+                {
+                   
+                
+                @foreach (var item in Model.H2HMatch)
+                        { 
+                            if(item!=null)
+                            {
+                                <tr>
+                                    <td>@item.DateUtc?.ToShortDateString()</td>
+                                    <td>@item.HomeTeam.Name </td>
+                                    <td><span class="score-badge">@($"{item.HomeScore} - {item.AwayScore}")</span></td>
+                                    <td>@item.AwayTeam.Name</td>
+                                    <td><span class="badge bg-light text-dark">@Model.Leauges.Name</span></td>
+                                </tr>
+                            }
+                        }
+                }
+                </tbody>
+            
+        </table>
+    </div>
+
+    <!-- Form örnek tablo (son maçlar) -->
+    <div class="row g-3">
+        <div class="col-md-6">
+            <h6 class="mb-2">@Model.HomeTeam.Name - Son Maçlar</h6>
+            <table class="table table-sm recent-matches-table mb-0">
+                <thead>
+                    <tr>
+                        <th class="text-muted">Tarih</th>
+                        <th class="text-muted">Rakip</th>
+                        <th class="text-muted">Skor</th>
+                        <th class="text-muted">Sonuç</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.HomeForm.Count != null)
+                {
+                    @foreach (var item in Model.HomeForm)
+                    {
+                        <tr>
+                            <td>@item.DateUtc.Value.ToShortDateString()</td>
+                            <td>@item.AwayTeamName</td>
+                            <td><span class="score-mini">@($"{item.HomeScore} - {item.AwayScore}")</span></td>
+                            @if (item.Badge== "G")
+                            {
+                                <td><span class="badge bg-success">G</span></td>
+                            }
+                            @if (item.Badge == "M")
+                            {
+                                <td><span class="badge bg-danger">M</span></td>
+                            }
+                            @if (item.Badge == "B")
+                            {
+                                    <td><span class="badge bg-warning">B</span></td>
+                            }
+                        </tr>
+                    }
+                }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h6 class="mb-2">@Model.AwayTeam.Name  - Son Maçlar</h6>
+            <table class="table table-sm recent-matches-table mb-0">
+                <thead>
+                    <tr>
+                        <th class="text-muted">Tarih</th>
+                        <th class="text-muted">Rakip</th>
+                        <th class="text-muted">Skor</th>
+                        <th class="text-muted">Sonuç</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.AwayForm.Count != null)
+                {
+                    @foreach (var item in Model.AwayForm)
+                    {
+                        <tr>
+                            <td>@item.DateUtc</td>
+                            <td>@item.HomeTeamName</td>
+                            <td><span class="score-mini">@($"{item.HomeScore} - {item.AwayScore}")</span></td>
+                            @if (item.Badge == "G")
+                            {
+                                <td><span class="badge bg-success">G</span></td>
+                            }
+                            @if (item.Badge == "M")
+                            {
+                                <td><span class="badge bg-danger">M</span></td>
+                            }
+                            @if (item.Badge == "B")
+                            {
+                                <td><span class="badge bg-warning">B</span></td>
+                            }
+                        </tr>
+                    }
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Karşılaştırmalı İndikatörler (sekme + iki sütun) -->
+    <div class="mt-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <h6 class="mb-0">Karşılaştırmalı İndikatörler</h6>
+            <div class="btn-group btn-group-sm indicators-tabs" role="group">
+                <button type="button" class="btn btn-outline-secondary active" data-metric-tab="general">Genel</button>
+                <button type="button" class="btn btn-outline-secondary" data-metric-tab="attack">Hücum</button>
+                <button type="button" class="btn btn-outline-secondary" data-metric-tab="defense">Savunma</button>
+                <button type="button" class="btn btn-outline-secondary" data-metric-tab="control">Pas/Kontrol</button>
+                <button type="button" class="btn btn-outline-secondary" data-metric-tab="setpieces">Duran Top</button>
+            </div>
+        </div>
+        <!-- Foreach: her metrik için bu .indicator-split bloğunu üretin -->
+        @if(Model.AwayIndicators!=null && Model.HomeIndicators!=null)
+        {
+            double CapFor(string metric) => metric switch
+            {
+                "Shots" => 40,
+                "xG" => 4,
+                "Corners" => 20,
+                "Goals" => 5,
+                "Possession" => 100.0,
+                "PassAcc" => 100.0,
+                _ => 100.0
+            };
+
+            string WidthPct(double? val, double cap, double min = 4.0)
+            {
+                var v = val ?? 0.0;
+                if (cap <= 0)
+                    cap = 1.0;
+                var pct = Math.Round(Math.Clamp((v / cap) * 100.0, min, 100.0),0);
+                return $"{pct:0.#}%";
+            }
+            <div class="indicator-split mb-3" data-metric-group="general">
+
+                <div class="mb-1"><span class="metric-title text-muted">Gol / Maç</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-primary" style="width: @WidthPct(item.AvgGoalMatch, 3.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgGoalMatch</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-primary" style="width: @WidthPct(item.AvgGoalMatch, 3.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgGoalMatch</span></div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="defense">
+                <div class="mb-1"><span class="metric-title text-muted">Yenilen Gol / Maç</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-danger" style="width: @WidthPct(item.AvgGoalAway, 3.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgGoalAway</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-danger" style="width: @WidthPct(item.AvgGoalAway, 3.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgGoalAway</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="attack">
+                <div class="mb-1"><span class="metric-title text-muted">Şut / Maç</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-info" style="width: @WidthPct(item.AvgShootMatch, 25.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgShootMatch</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-info" style="width: @WidthPct(item.AvgShootMatch, 25.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgShootMatch</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="control">
+                <div class="mb-1"><span class="metric-title text-muted">Top Hakimiyeti</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-primary" style="width: @WidthPct(item.AvgBallHandle, 100.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgBallHandle</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-primary" style="width: @WidthPct(item.AvgBallHandle, 100.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgBallHandle</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="control">
+                <div class="mb-1"><span class="metric-title text-muted">Pas Başarısı</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-warning" style="width: @WidthPct(item.AvgPassSucces, 100.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgPassSucces</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-warning" style="width: @WidthPct(item.AvgPassSucces, 100.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgPassSucces</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            @* <div class="indicator-split mb-3" data-metric-group="attack">
+            <div class="mb-1"><span class="metric-title text-muted">xG / Maç</span></div>
+            <div class="row g-2 align-items-end">
+                 @foreach (var item in Model.HomeIndicators)
+                {
+                    <div class="col-6">
+                        <div class="team-name text-muted">@Model.AwayTeam.Name</div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-success" style=@($"width: {Math.Min((int)item.AvgPassSucces, 100)}%")></div>
+                        </div>
+                        <span class="metric-value text-muted">2.3</span>
+                    </div>
+                }
+                @foreach (var item in Model.AwayIndicators)
+                {
+                    <div class="col-6">
+                        <div class="team-name text-muted text-end">@Model.HomeTeam.Name</div>
+                        <div class="progress progress-rtl" style="height: 10px;">
+                            <div class="progress-bar bg-success" style=@($"width: {Math.Min((int)item.AvgPassSucces, 100)}%")></div>
+                        </div>
+                        <div class="text-end"><span class="metric-value text-muted">1.9</span></div>
+                    </div>
+                }
+            </div>
+        </div> *@
+
+            <div class="indicator-split mb-3" data-metric-group="attack">
+                <div class="mb-1"><span class="metric-title text-muted">İsabetli Şut / Maç</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-info" style="width: @WidthPct(item.AvgShootAccurate, 12.0)" ></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgShootAccurate</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-info" style="width: @WidthPct(item.AvgShootAccurate, 12.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgShootAccurate</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="attack">
+                <div class="mb-1"><span class="metric-title text-muted">Büyük Şans / Maç</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-success" style="width: @WidthPct(item.AvgGoalChance, 3.5)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgGoalChance</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-success" style="width: @WidthPct(item.AvgGoalChance, 3.5)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgGoalChance</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="defense">
+                <div class="mb-1"><span class="metric-title text-muted">Kalede Görülen Şut / Maç</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-danger" style="width: @WidthPct(item.AvgGoalsKale, 10.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgGoalsKale</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-danger" style="width: @WidthPct(item.AvgGoalsKale, 10.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgGoalsKale</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="setpieces">
+                <div class="mb-1"><span class="metric-title text-muted">Korner / Maç</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-secondary" style="width: @WidthPct(item.AvgCorner, 12.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgCorner</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-secondary" style="width: @WidthPct(item.AvgCorner, 12.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgCorner</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="indicator-split mb-3" data-metric-group="defense">
+                <div class="mb-1"><span class="metric-title text-muted">Clean Sheet</span></div>
+                <div class="row g-2 align-items-end">
+                    @foreach (var item in Model.HomeIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted">@Model.HomeTeam.Name</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-success" style="width: @WidthPct(item.AvgCleanSheet, 1.0)"></div>
+                            </div>
+                            <span class="metric-value text-muted">@item.AvgCleanSheet</span>
+                        </div>
+                    }
+                    @foreach (var item in Model.AwayIndicators)
+                    {
+                        <div class="col-6">
+                            <div class="team-name text-muted text-end">@Model.AwayTeam.Name</div>
+                            <div class="progress progress-rtl" style="height: 10px;">
+                                <div class="progress-bar bg-success" style="width: @WidthPct(item.AvgCleanSheet, 1.0)"></div>
+                            </div>
+                            <div class="text-end"><span class="metric-value text-muted">@item.AvgCleanSheet</span></div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
+@section scripts {
+    <script src="~/js/Fixtures/fixtures.js"></script>
+
+}
